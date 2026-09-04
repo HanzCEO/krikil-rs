@@ -1,0 +1,32 @@
+{
+  "architectures": [
+    "PebbleForCausalLM"
+  ],
+  "attention": {
+    "is_causal": true,
+    "rope_theta": 10000.0
+  },
+  "auto_map": {
+    "AutoConfig": "configuration_pebble.PebbleConfig",
+    "AutoModelForCausalLM": "modeling_pebble.PebbleForCausalLM"
+  },
+  "block_pattern": "mmma|mmma",
+  "dtype": "float32",
+  "hidden_size": 608,
+  "hybrid_ratio": "3:1 mamba2:attention",
+  "intermediate_size": 2432,
+  "mamba2": {
+    "d_conv": 4,
+    "d_state": 128,
+    "expand": 2,
+    "headdim": 64,
+    "use_mem_eff_path": true
+  },
+  "max_position_embeddings": 2048,
+  "model_type": "pebble_25m",
+  "num_attention_heads": 8,
+  "num_hidden_layers": 8,
+  "rms_norm_eps": 1e-06,
+  "transformers_version": "4.57.1",
+  "vocab_size": 2048
+}

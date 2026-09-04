@@ -1,0 +1,25 @@
+[package]
+name = "krikil"
+version = "0.1.0"
+edition = "2021"
+authors = ["hanz"]
+description = "High-performance CPU-only inference engine for Pebble-25M"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+matrixmultiply = "0.3.11"
+memmap2 = "0.9"
+minijinja = { version = "2.7", features = ["loader"] }
+rand = "0.8"
+rayon = "1.10"
+safetensors = "0.5"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokenizers = { version = "0.21", default-features = false, features = ["progressbar", "onig"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
